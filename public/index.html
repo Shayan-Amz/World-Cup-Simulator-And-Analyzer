@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ورود | سیستم جام جهانی </title>
+    <link rel="stylesheet" href="assets/css/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+</head>
+<body>
+    <!-- شبکه پس‌زمینه -->
+    <div class="cyber-grid"></div>
+    
+    <!-- ذرات متحرک -->
+    <div class="particles" id="particles"></div>
+    
+    <!-- کانتینر اصلی -->
+    <div class="login-container">
+        <div class="cyber-card">
+            <!-- لوگو هولوگرام -->
+            <div class="hologram-logo">
+                <div class="hologram-logo-inner">
+                    <i class="fas fa-globe-americas"></i>
+                </div>
+            </div>
+            
+            <!-- عنوان -->
+            <h1 class="login-title">ورود به سیستم</h1>
+            <p class="login-subtitle">
+                پنل مدیریت جام جهانی ۲۰۲۶<br>
+                شبیه‌ساز و تحلیل‌گر تورنمنت
+            </p>
+            
+            <!-- فرم ورود -->
+            <form id="admin-login-form">
+                <!-- فیلد نام کاربری -->
+                <div class="input-hologram">
+                    <input type="text" 
+                           id="username" 
+                           name="username" 
+                           placeholder=" "
+                           autocomplete="off"
+                           spellcheck="false"
+                           required>
+                    <label class="input-label" for="username">
+                        <i class="fas fa-user-secret"></i>
+                        شناسه کاربری
+                    </label>
+                </div>
+                
+                <!-- فیلد رمز عبور -->
+                <div class="input-hologram">
+                    <input type="password" 
+                           id="password" 
+                           name="password" 
+                           placeholder=" "
+                           autocomplete="off"
+                           spellcheck="false"
+                           required>
+                    <label class="input-label" for="password">
+                        <i class="fas fa-key"></i>
+                       رمز عبور
+                    </label>
+                    <button type="button" 
+                            class="password-toggle" 
+                            id="toggle-password"
+                            aria-label="نمایش رمز عبور">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </div>
+                
+                <!-- گزینه ذخیره -->
+                <label class="remember-container">
+                    <input type="checkbox" id="remember-me" class="hidden-checkbox">
+                    <div class="remember-checkbox">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <span>مرا به خاطر بسپار</span>
+                </label>
+                
+                <!-- دکمه ورود -->
+                <button type="submit" class="cyber-button">
+                    <i class="fas fa-sign-in-alt"></i>
+                    تأیید و ورود به سیستم
+                </button>
+                
+                <!-- پیام خطا -->
+                <div id="error-message" class="error-hologram">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <span id="error-text"></span>
+                </div>
+            </form>
+            
+            <!-- فوتر -->
+            <div class="login-footer">
+                <p>سیستم مدیریت جام جهانی فوتبال ۲۰۲۶</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/login.js"></script>
+</body>
+</html>

@@ -1,0 +1,519 @@
+/* تنظیمات پایه */
+:root {
+    /* رنگ‌بندی مشکی و طوسی */
+    --black-1: #000000;
+    --black-2: #0A0A0A;
+    --black-3: #141414;
+    --black-4: #1E1E1E;
+    --black-5: #282828;
+    
+    --gray-1: #2D2D2D;
+    --gray-2: #3C3C3C;
+    --gray-3: #4A4A4A;
+    --gray-4: #595959;
+    --gray-5: #676767;
+    
+    --white-1: #F0F0F0;
+    --white-2: #E0E0E0;
+    --white-3: #D0D0D0;
+    
+    /* رنگ‌های اکسان نئونی */
+    --neon-blue: #00F3FF;
+    --neon-purple: #B026FF;
+    --neon-pink: #FF00D6;
+    
+    /* شفافیت‌ها */
+    --glass-bg: rgba(20, 20, 20, 0.85);
+    --glass-border: rgba(100, 100, 100, 0.2);
+}
+
+/* ریست استایل‌ها */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+body {
+    font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: radial-gradient(circle at center, 
+        var(--black-2) 0%,
+        var(--black-1) 100%);
+    color: var(--white-1);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* شبکه پس‌زمینه */
+.cyber-grid {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    transform: perspective(600px) rotateX(60deg) translateY(-20px);
+    animation: gridScroll 40s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes gridScroll {
+    0% { transform: perspective(600px) rotateX(60deg) translateY(-20px); }
+    100% { transform: perspective(600px) rotateX(60deg) translateY(20px); }
+}
+
+/* کانتینر اصلی */
+.login-container {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* کارت ورود */
+.cyber-card {
+    width: 100%;
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.cyber-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(0, 243, 255, 0.5), 
+        rgba(176, 38, 255, 0.5), 
+        transparent);
+}
+
+.cyber-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 0, 214, 0.5), 
+        rgba(0, 243, 255, 0.5), 
+        transparent);
+}
+
+/* لوگو هولوگرام */
+.hologram-logo {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 30px;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateX(10deg);
+}
+
+.hologram-logo-inner {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, 
+        rgba(0, 243, 255, 0.1), 
+        rgba(176, 38, 255, 0.1));
+    border: 2px solid rgba(0, 243, 255, 0.3);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(45deg);
+    position: relative;
+    overflow: hidden;
+}
+
+.hologram-logo-inner::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.1), 
+        transparent);
+    transform: rotate(45deg);
+    animation: hologramShine 4s linear infinite;
+}
+
+@keyframes hologramShine {
+    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+.hologram-logo i {
+    transform: rotate(-45deg);
+    font-size: 2.5rem;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 0 20px rgba(0, 243, 255, 0.5);
+}
+
+/* عنوان */
+.login-title {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 2.2rem;
+    font-weight: 800;
+    background: linear-gradient(90deg, 
+        var(--neon-blue), 
+        var(--neon-purple), 
+        var(--neon-blue));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    background-size: 200% auto;
+    animation: textShine 4s linear infinite;
+}
+
+@keyframes textShine {
+    0% { background-position: 200% center; }
+    100% { background-position: -200% center; }
+}
+
+.login-subtitle {
+    text-align: center;
+    color: rgba(240, 240, 240, 0.7);
+    margin-bottom: 40px;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+/* فیلدهای ورودی */
+.input-hologram {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.input-hologram input {
+    width: 100%;
+    padding: 16px 50px 16px 20px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(100, 100, 100, 0.3);
+    border-radius: 12px;
+    color: var(--white-1);
+    font-size: 1rem;
+    font-family: 'Vazirmatn', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.input-hologram input:focus {
+    outline: none;
+    border-color: var(--neon-blue);
+    box-shadow: 
+        0 0 0 2px rgba(0, 243, 255, 0.1),
+        0 0 20px rgba(0, 243, 255, 0.1);
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.input-label {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(240, 240, 240, 0.6);
+    transition: all 0.3s ease;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+}
+
+.input-hologram input:focus + .input-label,
+.input-hologram input:valid + .input-label {
+    top: -10px;
+    font-size: 0.85rem;
+    color: var(--neon-blue);
+    background: var(--black-3);
+    padding: 4px 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 243, 255, 0.3);
+}
+
+.input-hologram input:focus + .input-label i,
+.input-hologram input:valid + .input-label i {
+    color: var(--neon-blue);
+}
+
+/* دکمه نمایش رمز */
+.password-toggle {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: rgba(240, 240, 240, 0.6);
+    font-size: 1.1rem;
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+.password-toggle:hover {
+    color: var(--neon-blue);
+    background: rgba(0, 243, 255, 0.1);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.password-toggle:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+/* چک‌باکس ذخیره */
+.hidden-checkbox {
+    display: none;
+}
+
+.remember-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 30px;
+    cursor: pointer;
+    width: fit-content;
+}
+
+.remember-checkbox {
+    width: 22px;
+    height: 22px;
+    border: 2px solid rgba(100, 100, 100, 0.5);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.remember-checkbox i {
+    color: transparent;
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+}
+
+.hidden-checkbox:checked + .remember-checkbox {
+    border-color: var(--neon-blue);
+    background: rgba(0, 243, 255, 0.1);
+}
+
+.hidden-checkbox:checked + .remember-checkbox i {
+    color: var(--neon-blue);
+}
+
+.remember-container span {
+    color: rgba(240, 240, 240, 0.7);
+    font-size: 0.95rem;
+    user-select: none;
+}
+
+/* دکمه ورود */
+.cyber-button {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(45deg, 
+        rgba(0, 243, 255, 0.1), 
+        rgba(176, 38, 255, 0.1));
+    border: 1px solid rgba(100, 100, 100, 0.3);
+    border-radius: 12px;
+    color: var(--white-1);
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Vazirmatn', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.cyber-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.1), 
+        transparent);
+    transition: 0.5s;
+}
+
+.cyber-button:hover {
+    border-color: var(--neon-blue);
+    box-shadow: 
+        0 0 20px rgba(0, 243, 255, 0.2),
+        inset 0 0 0 1px rgba(0, 243, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.cyber-button:hover::before {
+    left: 100%;
+}
+
+.cyber-button:hover i {
+    transform: translateX(-5px);
+}
+
+.cyber-button i {
+    transition: transform 0.3s ease;
+}
+
+.cyber-button:active {
+    transform: translateY(0);
+}
+
+/* پیام خطا */
+.error-hologram {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(255, 0, 0, 0.05);
+    border: 1px solid rgba(255, 0, 0, 0.2);
+    border-radius: 12px;
+    color: #ff6b6b;
+    display: none;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.error-hologram i {
+    font-size: 1.2rem;
+}
+
+/* فوتر */
+.login-footer {
+    text-align: center;
+    margin-top: 30px;
+    color: rgba(240, 240, 240, 0.5);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.version-badge {
+    display: inline-block;
+    padding: 6px 15px;
+    background: rgba(0, 243, 255, 0.1);
+    border: 1px solid rgba(0, 243, 255, 0.2);
+    border-radius: 20px;
+    margin-top: 10px;
+    font-size: 0.8rem;
+    color: rgba(0, 243, 255, 0.8);
+}
+
+/* ذرات متحرک */
+.particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* رسپانسیو */
+@media (max-width: 768px) {
+    .cyber-card {
+        padding: 30px;
+        max-width: 90%;
+    }
+    
+    .login-title {
+        font-size: 1.8rem;
+    }
+    
+    .hologram-logo {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 25px;
+    }
+    
+    .hologram-logo i {
+        font-size: 2rem;
+    }
+    
+    .login-subtitle {
+        font-size: 1rem;
+        margin-bottom: 30px;
+    }
+    
+    .input-hologram input {
+        padding: 14px 45px 14px 15px;
+        font-size: 0.95rem;
+    }
+    
+    .cyber-button {
+        padding: 14px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .cyber-card {
+        padding: 25px;
+        max-width: 95%;
+    }
+    
+    .login-title {
+        font-size: 1.6rem;
+    }
+    
+    .hologram-logo {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .input-hologram {
+        margin-bottom: 20px;
+    }
+    
+    .remember-container {
+        margin-bottom: 25px;
+    }
+}
