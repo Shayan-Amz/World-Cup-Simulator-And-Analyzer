@@ -1,0 +1,13 @@
+# local configuration (copy from config/config.example.php)
+config/config.php
+
+# local SQLite database used by the zero-setup demo
+database/*.sqlite
+database/*.sqlite-journal
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+node_modules/
