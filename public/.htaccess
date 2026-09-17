@@ -1,0 +1,3 @@
+# Apache hardening for the document root.
+# config/ and database/ live outside public/ on purpose and are never served.
+Options -Indexes
